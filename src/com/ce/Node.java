@@ -9,11 +9,11 @@ package com.ce;
  */
 public class Node {
 
-    public int value;
+    private int value;
 
-    public Node left;
-    public Node middle;
-    public Node right;
+    private Node left;
+    private Node middle;
+    private Node right;
 
     public Node(int value) {
         this.value = value;
@@ -28,7 +28,7 @@ public class Node {
 
 
     /**
-     * Courtesy : http://stackoverflow.com/a/27153988 
+     * Courtesy : http://stackoverflow.com/a/27153988
      * @return
      */
     @Override
@@ -37,20 +37,52 @@ public class Node {
     }
 
     public StringBuilder toString(StringBuilder prefix, Boolean isTail, StringBuilder sb) {
-        if (right != null) {
-            right.toString(new StringBuilder().append(prefix).append(isTail ? "│   " : "    "), false, sb);
+        if (this.right != null) {
+            this.right.toString(new StringBuilder().append(prefix).append(isTail ? "│   " : "    "), false, sb);
         }
 
-        sb.append(prefix).append(isTail ? "└── " : "┌── ").append(value).append("\n");
+        sb.append(prefix).append(isTail ? "└── " : "┌── ").append(this.value).append("\n");
 
-        if (middle != null) {
-            middle.toString(new StringBuilder().append(prefix).append(isTail ? "    " : "│   "), true, sb);
+        if (this.middle != null) {
+            this.middle.toString(new StringBuilder().append(prefix).append(isTail ? "    " : "│   "), true, sb);
         }
 
-        if (left != null) {
-            left.toString(new StringBuilder().append(prefix).append(isTail ? "    " : "│   "), true, sb);
+        if (this.left != null) {
+            this.left.toString(new StringBuilder().append(prefix).append(isTail ? "    " : "│   "), true, sb);
         }
 
         return sb;
+    }
+
+    public int getValue() {
+        return this.value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public Node getLeft() {
+        return this.left;
+    }
+
+    public void setLeft(Node left) {
+        this.left = left;
+    }
+
+    public Node getMiddle() {
+        return this.middle;
+    }
+
+    public void setMiddle(Node middle) {
+        this.middle = middle;
+    }
+
+    public Node getRight() {
+        return this.right;
+    }
+
+    public void setRight(Node right) {
+        this.right = right;
     }
 }

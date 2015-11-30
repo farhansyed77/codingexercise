@@ -46,12 +46,12 @@ public class TernaryTree {
             return new Node(val);
         }
 
-        if (node.value == val) {
-            node.middle =  addNode(node.middle, val);
-        } else if (node.value > val){
-            node.left = addNode(node.left, val);
+        if (node.getValue() == val) {
+            node.setMiddle(addNode(node.getMiddle(), val));
+        } else if (node.getValue() > val){
+            node.setLeft(addNode(node.getLeft(), val));
         } else {
-            node.right = addNode(node.right, val);
+            node.setRight(addNode(node.getRight(), val));
         }
         return node;
     }
